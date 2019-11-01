@@ -6,12 +6,24 @@
              xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core"
              mc:Ignorable="d"
              x:Class="HertiageWalks.MainPage">
-    <ListView>
+    <ContentPage.BindingContext>
+        <vm:TrailViewModel/>
+    </ContentPage.BindingContext>
+    <ListView  x:Name="TrailView">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding ID}"/>
+                        <Image Source="{Binding TrailImage}" />
+                        <Label Text="{Binding TrailName}"
+                                TextColor="#f35e20" />
+                        <Label Text="{Binding TrailDistance}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                        <Label Text="{Binding TrailTime}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                        <Button Text="View" CommandParameter="{Binding TrailID}" Clicked="TrailClicked"></Button>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

@@ -13,7 +13,7 @@ namespace HeritageWalksAPI.Model
         private string long_desc;
         private double x;
         private double y;
-        private string image;
+        private string img;
         private string audio;
         private DateTime created_at;
         private DateTime updated_at;
@@ -27,7 +27,7 @@ namespace HeritageWalksAPI.Model
             this.long_desc = Long_Desc;
             this.X = x;
             this.Y = y;
-            this.image = Image;
+            this.img = Image;
             this.audio = Audio;
             this.created_at = created;
             this.updated_at = updated;
