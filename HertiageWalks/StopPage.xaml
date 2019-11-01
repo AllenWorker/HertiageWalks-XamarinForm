@@ -14,7 +14,6 @@
             <Image Source="{Binding StopImage}" />
             <Label Text="{Binding StopStreetlocation}"/>
             <Label Text="{Binding StopShortDesc}"/>
-         
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
