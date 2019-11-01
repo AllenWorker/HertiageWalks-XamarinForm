@@ -12,13 +12,13 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="{Binding StopsImage}" />
-                        <Label Text="{Binding name}"
+                        <Image Source="{Binding StopImage}" />
+                        <Label Text="{Binding StopName}"
                                 TextColor="#f35e20" />
-                        <Label Text="{Binding street_location}"
+                        <Label Text="{Binding StopStreetlocation}"
                                 HorizontalOptions="EndAndExpand"
                                 TextColor="#503026" />
-                        <Button Text="View" CommandParameter="{Binding TrailID}" Clicked="StopClicked"></Button>
+                        <Button Text="View" CommandParameter="{Binding StopId}" Clicked="StopClicked"></Button>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
