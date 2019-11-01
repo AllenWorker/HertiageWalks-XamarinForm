@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="StopListPage.xaml.cs">
+      <DependentUpon>StopListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="TrailPage.xaml.cs">
       <DependentUpon>TrailPage.xaml</DependentUpon>
     </Compile>
@@ -24,7 +27,10 @@
     <EmbeddedResource Update="InfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="StopList.xaml">
+    <EmbeddedResource Update="StopListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="StopPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="TrailPage.xaml">
