@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,9 +14,21 @@ namespace HertiageWalks
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+       
         public MainPage()
         {
             InitializeComponent();
+            ToolbarItem item = new ToolbarItem
+            {
+                Text = "Example Item",
+                IconImageSource = ImageSource.FromFile("example_icon.png"),
+                Order = ToolbarItemOrder.Primary,
+                Priority = 0
+            };
+            item.Clicked += OnItemClicked;
+            // "this" refers to a Page object
+            this.ToolbarItems.Add(item);
+
             //TrailView.ItemTemplate = new DataTemplate(typeof(CustomCell));
         }
 
@@ -25,5 +38,13 @@ namespace HertiageWalks
             string ID = button.CommandParameter.ToString();
             // Do your Stuff.....
         }
+
+        void OnItemClicked(object sender, EventArgs e)
+        {
+            ToolbarItem item = (ToolbarItem)sender;
+          Console.Out.WriteLine ("You clicked the \"{item.Text}\" toolbar item.");
+        }
+
+
     }
 }
