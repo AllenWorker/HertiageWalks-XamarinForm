@@ -6,6 +6,9 @@
              xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core"
              mc:Ignorable="d"
              x:Class="HertiageWalks.MainPage">
+    <ContentPage.BindingContext>
+        <vm:TrailViewModel/>
+    </ContentPage.BindingContext>
     <ListView>
         <ListView.ItemTemplate>
             <DataTemplate>

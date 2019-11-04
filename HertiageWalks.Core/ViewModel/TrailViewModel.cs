@@ -14,6 +14,13 @@ namespace HertiageWalks.Core.ViewModel
         private List<Trail> trails;
         public HeritageWalkService HeritageWalkService { get; } = new HeritageWalkService();
 
+        public TrailViewModel()
+        {
+            trails = new List<Trail>();
+            LoadData();
+            
+        }
+
         public int TrailID
         {
             get { return trail.id; }
@@ -35,6 +42,8 @@ namespace HertiageWalks.Core.ViewModel
         public async void LoadData()
         {
             trails = await HeritageWalkService.GetAllTrails();
+            trail = trails[0];
+            OnPropertyChanged();
         }
         
     }

@@ -10,7 +10,7 @@ namespace HertiageWalks.Core.Services
 {
     public class HeritageWalkService
     {
-        const string HeritageWalkUri = "http://127.0.0.1:8000/api/{0}/{1}";
+        const string HeritageWalkUri = "https://www.heritage-walks.screencraft.net.au/api/{0}/{1}";
 
         public async Task<StopLocation> GetStop(int stopId)
         {
