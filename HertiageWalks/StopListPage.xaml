@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HertiageWalks.StopList"
+               xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core">
+    
+    <ContentPage.BindingContext>
+        <vm:StopViewModel/>
+    </ContentPage.BindingContext>
+    <ListView  x:Name="TrailView">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="{Binding StopImage}" />
+                        <Label Text="{Binding StopName}"
+                                TextColor="#f35e20" />
+                        <Label Text="{Binding StopStreetlocation}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                        <Button Text="View" CommandParameter="{Binding StopId}" Clicked="StopClicked"></Button>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

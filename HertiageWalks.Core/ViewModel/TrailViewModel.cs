@@ -33,6 +33,24 @@ namespace HertiageWalks.Core.ViewModel
             set { OnPropertyChanged(); }
         }
 
+        public string TrailImage
+        {
+            get { return trail.img; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string TrailDistance
+        {
+            get { return trail.length; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string TrailTime
+        {
+            get { return trail.time; }
+            set { OnPropertyChanged(); }
+        }
+
         public List<Trail> Trails 
         {
             get { return trails; }

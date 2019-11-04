@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HertiageWalks.Trail"
+    xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core">
+    <ContentPage.BindingContext>
+        <vm:TrailViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding TrailName}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Image Source="{Binding TrailImage}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Distance KM"
+                                HorizontalOptions="EndAndExpand"/>
+                <Label Text="Time H"
+                                HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding TrailDistance}"
+                                HorizontalOptions="EndAndExpand"/>
+                <Label Text="{Binding TrailTime}"
+                                HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

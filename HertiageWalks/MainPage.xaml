@@ -9,12 +9,25 @@
     <ContentPage.BindingContext>
         <vm:TrailViewModel/>
     </ContentPage.BindingContext>
+<<<<<<< HEAD
     <ListView>
+=======
+    <ListView  x:Name="TrailView">
+>>>>>>> origin/Georgia
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding ID}"/>
+                        <Image Source="{Binding TrailImage}" />
+                        <Label Text="{Binding TrailName}"
+                                TextColor="#f35e20" />
+                        <Label Text="{Binding TrailDistance}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                        <Label Text="{Binding TrailTime}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                        <Button Text="View" CommandParameter="{Binding TrailID}" Clicked="TrailClicked"></Button>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
