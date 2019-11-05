@@ -4,16 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core"
-             xmlns:pages="clr-namespace:HertiageWalks.HamburgerMenu"
+          
              mc:Ignorable="d"
-             Title ="Heritage Walks"
+                Title ="Heritage Walks"
              x:Class="HertiageWalks.MainPage">
     <ContentPage.BindingContext>
         <vm:TrailViewModel/>
     </ContentPage.BindingContext>
-    <Button Text="View" Clicked="OnHelpPageClicked"></Button>
-
-    <ListView  x:Name="TrailView">
+ 
+   <ListView  x:Name="TrailView">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
