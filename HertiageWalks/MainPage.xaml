@@ -9,7 +9,7 @@
                 Title ="Heritage Walks"
              x:Class="HertiageWalks.MainPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Help" Order="Primary" IconImageSource="help.Png"  Priority="1" Clicked="HelpClicked" />
+        <ToolbarItem Name="Help" Order="Primary" Priority="1" Clicked="HelpClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
         <vm:TrailViewModel/>
