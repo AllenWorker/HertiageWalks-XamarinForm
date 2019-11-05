@@ -14,8 +14,8 @@
     <ContentPage.BindingContext>
         <vm:TrailViewModel/>
     </ContentPage.BindingContext>
- 
-   <ListView  x:Name="TrailView">
+
+    <ListView  x:Name="TrailView" ItemsSource="{Binding Data}">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
