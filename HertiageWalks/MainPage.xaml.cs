@@ -22,12 +22,10 @@ namespace HertiageWalks
         public MainPage()
         {
             InitializeComponent();
-<<<<<<< HEAD
             HeritageWalkService service = new HeritageWalkService();
 
-            MVVMData = new ObservableCollection<Trail>(service.GetAllTrails());
+            MVVMData = new ObservableCollection<Trail>();
             Console.WriteLine(MVVMData.Count);
-=======
             //TrailView.ItemTemplate = new DataTemplate(typeof(CustomCell));
         }
 
@@ -36,7 +34,7 @@ namespace HertiageWalks
             Button button = (Button)Sender;
             string ID = button.CommandParameter.ToString();
             // Do your Stuff.....
->>>>>>> origin/Georgia
+
         }
     }
 }

@@ -9,12 +9,8 @@
     <ContentPage.BindingContext>
         <vm:TrailViewModel/>
     </ContentPage.BindingContext>
-<<<<<<< HEAD
-    <ListView>
-=======
     <ListView  x:Name="TrailView">
->>>>>>> origin/Georgia
-        <ListView.ItemTemplate>
+            <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
