@@ -8,6 +8,9 @@
              mc:Ignorable="d"
                 Title ="Heritage Walks"
              x:Class="HertiageWalks.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Help" Order="Primary"  Text="Help" Priority="1" Clicked="HelpClicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
         <vm:TrailViewModel/>
     </ContentPage.BindingContext>

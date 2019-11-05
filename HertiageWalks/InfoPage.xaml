@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HertiageWalks.InfoPage">
+   
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Back" Clicked="OnBackClicked"></Button>
+       
             <Label Text="Information Help Page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
