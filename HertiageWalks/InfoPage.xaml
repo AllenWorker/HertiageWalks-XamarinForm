@@ -4,6 +4,7 @@
              x:Class="HertiageWalks.InfoPage">
     <ContentPage.Content>
         <StackLayout>
+            <Button Text="Back" Clicked="OnBackClicked"></Button>
             <Label Text="Information Help Page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

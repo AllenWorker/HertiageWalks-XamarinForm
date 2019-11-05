@@ -6,10 +6,12 @@
              xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core"
              xmlns:pages="clr-namespace:HertiageWalks.HamburgerMenu"
              mc:Ignorable="d"
+             Title ="Heritage Walks"
              x:Class="HertiageWalks.MainPage">
     <ContentPage.BindingContext>
         <vm:TrailViewModel/>
     </ContentPage.BindingContext>
+    <Button Text="View" Clicked="OnHelpPageClicked"></Button>
 
     <ListView  x:Name="TrailView">
         <ListView.ItemTemplate>
@@ -31,5 +33,4 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-
 </ContentPage>

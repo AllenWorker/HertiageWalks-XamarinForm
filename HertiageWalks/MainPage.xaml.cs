@@ -44,7 +44,10 @@ namespace HertiageWalks
             ToolbarItem item = (ToolbarItem)sender;
           Console.Out.WriteLine ("You clicked the \"{item.Text}\" toolbar item.");
         }
-
+        async void OnHelpPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new InfoPage());
+        }
 
     }
 }
