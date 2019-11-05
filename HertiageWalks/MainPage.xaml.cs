@@ -17,12 +17,14 @@ namespace HertiageWalks
         public MainPage()
         {
             InitializeComponent();
-       
-      
-         
          
         }
 
+        /// <summary>
+        /// for the trail page 
+        /// </summary>
+        /// <param name="Sender"></param>
+        /// <param name="args"></param>
         public void TrailClicked(Object Sender, EventArgs args)
         {
             Button button = (Button)Sender;
@@ -30,7 +32,11 @@ namespace HertiageWalks
             // Do your Stuff.....
         }
 
-
+        /// <summary>
+        /// opens the help page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void HelpClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new InfoPage());

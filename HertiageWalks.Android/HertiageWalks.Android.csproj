@@ -89,7 +89,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\help.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HertiageWalks\HertiageWalks.csproj">
       <Project>{FE39075C-AF4C-498C-BFE5-F4D6E834FD63}</Project>
