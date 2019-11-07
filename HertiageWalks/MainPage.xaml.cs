@@ -22,10 +22,10 @@ namespace HertiageWalks
         public MainPage()
         {
             InitializeComponent();
-            HeritageWalkService service = new HeritageWalkService();
+            //HeritageWalkService service = new HeritageWalkService();
 
-            MVVMData = new ObservableCollection<Trail>();
-            Console.WriteLine(MVVMData.Count);
+            //MVVMData = new ObservableCollection<Trail>();
+            //Console.WriteLine(MVVMData.Count);
             //TrailView.ItemTemplate = new DataTemplate(typeof(CustomCell));
         }
 
