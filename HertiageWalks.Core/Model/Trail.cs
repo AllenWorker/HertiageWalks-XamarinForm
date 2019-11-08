@@ -7,14 +7,14 @@ namespace HertiageWalks.Core.Model
 {
     public class Trail
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string time { get; set; }
-        public string length { get; set; }
-        public string created_at { get; set; }
-        public string updated_at { get; set; }
-        public string img { get; set; }
-        public string audio { get; set; }
+        internal int id { get; set; }
+        internal string name { get; set; }
+        internal string time { get; set; }
+        internal string length { get; set; }
+        internal string created_at { get; set; }
+        internal string updated_at { get; set; }
+        internal string img { get; set; }
+        internal string audio { get; set; }
 
         
     }

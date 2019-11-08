@@ -30,7 +30,7 @@ namespace HertiageWalks
         /// </summary>
         /// <param name="Sender"></param>
         /// <param name="args"></param>
-        async void TrailClicked(object s, SelectedItemChangedEventArgs e)
+        async void HandleItemTapped(object s, SelectedItemChangedEventArgs e)
         {
             await Navigation.PushAsync(new TrailPage());
 

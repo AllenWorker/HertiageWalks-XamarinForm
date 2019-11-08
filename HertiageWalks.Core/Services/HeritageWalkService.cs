@@ -11,7 +11,7 @@ namespace HertiageWalks.Core.Services
     public class HeritageWalkService
     {
         const string HeritageWalkUri = "https://heritage-walks.screencraft.net.au/api/{0}/{1}";
-        public const string TrailImgPath = "https://heritage-walks.screencraft.net.au/images/trails/";
+        public const string ImgPath = "https://heritage-walks.screencraft.net.au/images/{0}/{1}";
 
         public async Task<StopLocation> GetStop(int stopId)
         {

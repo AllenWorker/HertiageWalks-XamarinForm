@@ -12,10 +12,14 @@
         <ToolbarItem Name="Help" Order="Primary" Priority="1" Clicked="HelpClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
-        <vm:TrailViewModel/>
+        <vm:TrailViewModel>
+            <x:Arguments>
+                <x:Int32>1</x:Int32>
+            </x:Arguments>
+        </vm:TrailViewModel>
     </ContentPage.BindingContext>
 
-    <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}" ItemSelected="TrailClicked">
+    <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}" ItemTapped="HandleItemTapped">
         <ListView.Header>
             <StackLayout Orientation="Horizontal">
                 <Label Text="List of Trails"/>

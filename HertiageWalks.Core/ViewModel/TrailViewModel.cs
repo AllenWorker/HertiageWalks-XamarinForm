@@ -12,29 +12,46 @@ namespace HertiageWalks.Core.ViewModel
     public class TrailViewModel : BaseViewModel
     {
 
-        private List<Trail> trails;
-        public HeritageWalkService HeritageWalkService { get; } = new HeritageWalkService();
+        private Trail trail;
 
         public TrailViewModel()
         {
-            LoadDataAsync();
+            
         }
-
-
-
-
-
-        public List<Trail> Trails
+        
+        public int TrailID
         {
-            get { return trails; }
+            get { return trail.id; }
             set { OnPropertyChanged(); }
         }
 
-        public async void LoadDataAsync()
+        public string TrailName
         {
-            trails = await HeritageWalkService.GetAllTrails();
-            OnPropertyChanged("Trails");
+            get { return trail.name; }
+            set { OnPropertyChanged(); }
         }
+
+        public string Time
+        {
+            get { return trail.time; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string TrailLength
+        {
+            get { return trail.length; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string ImgUri
+        {
+            get { return string.Format(HeritageWalkService.ImgPath, "trails", trail.img); }
+            set { OnPropertyChanged(); }
+        }
+
+
+
+
 
     }
 }
