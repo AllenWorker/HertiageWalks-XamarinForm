@@ -11,41 +11,22 @@ namespace HertiageWalks.Core.ViewModel
 {
     public class TrailViewModel : BaseViewModel
     {
-        
+
         private List<Trail> trails;
         public HeritageWalkService HeritageWalkService { get; } = new HeritageWalkService();
 
-
-        public TrailViewModel() { }
-        
-
-        
-        public ObservableCollection<Trail> Data = new ObservableCollection<Trail>();
-
-        public int TrailID
-        {
-            get { return trail.id; }
-            set { OnPropertyChanged(); }
-        }
-
-        public string TrailName
-        {
-            get { return trail.name; }
-            set { OnPropertyChanged(); }
-        }
-
-        public string TrailImage
+        public TrailViewModel()
         {
             trails = new List<Trail>();
             LoadData();
-            
+
         }
 
-        
 
-        
 
-        public List<Trail> Trails 
+
+
+        public List<Trail> Trails
         {
             get { return trails; }
             set { OnPropertyChanged(); }
@@ -54,16 +35,9 @@ namespace HertiageWalks.Core.ViewModel
         public async void LoadData()
         {
             trails = await HeritageWalkService.GetAllTrails();
-
             OnPropertyChanged("Trails");
-
-            foreach (var item in trails)
-            {
-                Data.Add(item);
-            }
-
         }
-        
+
     }
 }
 

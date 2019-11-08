@@ -6,7 +6,6 @@
              mc:Ignorable="d"
              x:Class="HertiageWalks.App"
              >
-            
     <Application.Resources>
 
     </Application.Resources>

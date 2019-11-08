@@ -41,11 +41,9 @@ namespace HertiageWalks
         /// </summary>
         /// <param name="Sender"></param>
         /// <param name="args"></param>
-        public void TrailClicked(Object Sender, EventArgs args)
+        async void TrailClicked(object s, SelectedItemChangedEventArgs e)
         {
-            Button button = (Button)Sender;
-            string ID = button.CommandParameter.ToString();
-            // Do your Stuff.....
+            await Navigation.PushAsync(new TrailPage());
 
         }
 

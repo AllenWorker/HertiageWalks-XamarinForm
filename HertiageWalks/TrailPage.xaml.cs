@@ -10,11 +10,22 @@ using Xamarin.Forms.Xaml;
 namespace HertiageWalks
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Trail : ContentPage
+	public partial class TrailPage : ContentPage
 	{
-		public Trail ()
+		public TrailPage ()
 		{
 			InitializeComponent ();
 		}
-	}
+
+
+        /// <summary>
+        /// opens the help page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void HelpClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new InfoPage());
+        }
+    }
 }

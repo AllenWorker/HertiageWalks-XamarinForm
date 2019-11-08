@@ -14,14 +14,31 @@
     <ContentPage.BindingContext>
         <vm:TrailViewModel/>
     </ContentPage.BindingContext>
-    <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}">
-        <ListView.ItemTemplate>
-            <ListView  x:Name="TrailView" ItemsSource="{Binding Data}">
-        <ListView.ItemTemplate>
 
+    <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}" ItemSelected="TrailClicked">
+        <ListView.Header>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="List of Trails"/>
+            </StackLayout>
+        </ListView.Header>
+        <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding name}" Detail="{Binding id}"/>
+                <ViewCell>
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding name}"/>
+                            <Label Text="{Binding time}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                            <Label Text="{Binding length}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+            
+            
 </ContentPage>
