@@ -17,9 +17,7 @@ namespace HertiageWalks.Core.ViewModel
 
         public TrailViewModel()
         {
-            trails = new List<Trail>();
-            LoadData();
-
+            LoadDataAsync();
         }
 
 
@@ -32,7 +30,7 @@ namespace HertiageWalks.Core.ViewModel
             set { OnPropertyChanged(); }
         }
 
-        public async void LoadData()
+        public async void LoadDataAsync()
         {
             trails = await HeritageWalkService.GetAllTrails();
             OnPropertyChanged("Trails");

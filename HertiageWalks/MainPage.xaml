@@ -23,19 +23,12 @@
         </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ViewCell>
-                    <StackLayout Orientation="Vertical">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding name}"/>
-                            <Label Text="{Binding time}"
-                                HorizontalOptions="EndAndExpand"
-                                TextColor="#503026" />
-                            <Label Text="{Binding length}"
-                                HorizontalOptions="EndAndExpand"
-                                TextColor="#503026" />
-                        </StackLayout>
-                    </StackLayout>
-                </ViewCell>
+                <ImageCell Text="{Binding name}"
+                           Detail="{Binding length}">
+                    <ImageCell.ImageSource>
+                        <UriImageSource Uri="{Binding img, StringFormat='https://heritage-walks.screencraft.net.au/images/trails/{0}'}"/>
+                    </ImageCell.ImageSource>
+                </ImageCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
