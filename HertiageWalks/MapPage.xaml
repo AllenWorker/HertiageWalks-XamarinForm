@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xaml="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
              x:Class="HertiageWalks.MapPage">
     <ContentPage.Content>
         <StackLayout>
-           
+            <xaml:MapControl Name="MyMapControl"></xaml:MapControl>
 
             <StackLayout VerticalOptions="End"
                          BackgroundColor="LightGray">

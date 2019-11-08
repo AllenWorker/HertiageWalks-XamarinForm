@@ -15,5 +15,7 @@ namespace HertiageWalks.Core.Model
         public string updated_at { get; set; }
         public string img { get; set; }
         public string audio { get; set; }
+
+        
     }
 }

@@ -17,7 +17,7 @@ namespace HertiageWalks
         public MapPage ()
 		{
 			InitializeComponent ();
-
+            
         }
 
         async void MapClicked(object sender, EventArgs e)

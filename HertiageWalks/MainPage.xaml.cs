@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using HertiageWalks.Core.ViewModel;
-using HertiageWalks.Core.Services;
 
 
 using HertiageWalks.Core.Model;
+
 
 
 
@@ -22,17 +22,9 @@ namespace HertiageWalks
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-
-        ObservableCollection<Trail> MVVMData;
         public MainPage()
         {
             InitializeComponent();
-            //HeritageWalkService service = new HeritageWalkService();
-
-            //MVVMData = new ObservableCollection<Trail>();
-            //Console.WriteLine(MVVMData.Count);
-            //TrailView.ItemTemplate = new DataTemplate(typeof(CustomCell));
-
 
         }
 
