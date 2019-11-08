@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using HertiageWalks.Core.Model;
@@ -14,7 +15,26 @@ namespace HertiageWalks.Core.ViewModel
         private List<Trail> trails;
         public HeritageWalkService HeritageWalkService { get; } = new HeritageWalkService();
 
-        public TrailViewModel()
+
+        public TrailViewModel() { }
+        
+
+        
+        public ObservableCollection<Trail> Data = new ObservableCollection<Trail>();
+
+        public int TrailID
+        {
+            get { return trail.id; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string TrailName
+        {
+            get { return trail.name; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string TrailImage
         {
             trails = new List<Trail>();
             LoadData();
@@ -34,8 +54,16 @@ namespace HertiageWalks.Core.ViewModel
         public async void LoadData()
         {
             trails = await HeritageWalkService.GetAllTrails();
+
             OnPropertyChanged("Trails");
+
+            foreach (var item in trails)
+            {
+                Data.Add(item);
+            }
+
         }
         
     }
 }
+

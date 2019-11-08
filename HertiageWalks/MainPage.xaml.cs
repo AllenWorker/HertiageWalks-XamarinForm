@@ -1,5 +1,7 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,8 @@ using HertiageWalks.Core.Services;
 using System.Collections.ObjectModel;
 using HertiageWalks.Core.Model;
 
+
+
 namespace HertiageWalks
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -18,6 +22,7 @@ namespace HertiageWalks
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+
         ObservableCollection<Trail> MVVMData;
         public MainPage()
         {
@@ -27,8 +32,15 @@ namespace HertiageWalks
             //MVVMData = new ObservableCollection<Trail>();
             //Console.WriteLine(MVVMData.Count);
             //TrailView.ItemTemplate = new DataTemplate(typeof(CustomCell));
+
+
         }
 
+        /// <summary>
+        /// for the trail page 
+        /// </summary>
+        /// <param name="Sender"></param>
+        /// <param name="args"></param>
         public void TrailClicked(Object Sender, EventArgs args)
         {
             Button button = (Button)Sender;
@@ -36,5 +48,17 @@ namespace HertiageWalks
             // Do your Stuff.....
 
         }
+
+        /// <summary>
+        /// opens the help page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void HelpClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new InfoPage());
+        }
+
+
     }
 }

@@ -16,9 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="NavHamburger\HamburgerMenuMenuItem.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="StopListPage.xaml.cs">
       <DependentUpon>StopListPage.xaml</DependentUpon>
     </Compile>
@@ -29,15 +26,6 @@
 
   <ItemGroup>
     <EmbeddedResource Update="InfoPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="NavHamburger\HamburgerMenu.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="NavHamburger\HamburgerMenuDetail.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="NavHamburger\HamburgerMenuMaster.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="StopListPage.xaml">

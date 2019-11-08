@@ -4,17 +4,24 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core"
+          
              mc:Ignorable="d"
+                Title ="Heritage Walks"
              x:Class="HertiageWalks.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Help" Order="Primary" Priority="1" Clicked="HelpClicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
         <vm:TrailViewModel/>
     </ContentPage.BindingContext>
     <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}">
-            <ListView.ItemTemplate>
+        <ListView.ItemTemplate>
+            <ListView  x:Name="TrailView" ItemsSource="{Binding Data}">
+        <ListView.ItemTemplate>
+
             <DataTemplate>
                 <TextCell Text="{Binding name}" Detail="{Binding id}"/>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-
 </ContentPage>

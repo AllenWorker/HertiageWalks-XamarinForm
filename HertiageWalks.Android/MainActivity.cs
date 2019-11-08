@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Xamarin.Forms;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -12,6 +12,7 @@ namespace HertiageWalks.Droid
     [Activity(Label = "HertiageWalks", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        [Obsolete]
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -29,5 +30,7 @@ namespace HertiageWalks.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+       
     }
 }
