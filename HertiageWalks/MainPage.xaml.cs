@@ -10,7 +10,7 @@ using Xamarin.Forms;
 using HertiageWalks.Core.ViewModel;
 using HertiageWalks.Core.Services;
 
-using System.Collections.ObjectModel;
+
 using HertiageWalks.Core.Model;
 
 

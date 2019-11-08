@@ -27,5 +27,20 @@ namespace HertiageWalks
         {
             await Navigation.PushAsync(new InfoPage());
         }
+
+        async void MapClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MapPage());
+        }
+
+        async void TrailClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TrailPage());
+        }
+
+        async void StopClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new StopList());
+        }
     }
 }

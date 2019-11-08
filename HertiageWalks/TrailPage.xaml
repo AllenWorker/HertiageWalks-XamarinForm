@@ -10,8 +10,8 @@
         <vm:TrailViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        
         <StackLayout>
+            <StackLayout>
             <Label Text="Trail!"/>
             <Label Text="{Binding TrailName}"
                 VerticalOptions="CenterAndExpand" 
@@ -29,6 +29,18 @@
                 <Label Text="{Binding TrailTime}"
                                 HorizontalOptions="EndAndExpand"/>
             </StackLayout>
+        </StackLayout>
+          <StackLayout VerticalOptions="End"
+                         BackgroundColor="LightGray">
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Map"
+                            BackgroundColor="LightGray"  Clicked="MapClicked"/>
+                    <Button Text="Trail"
+                            BackgroundColor="LightGray" Clicked="TrailClicked"/>
+                    <Button Text="StopsList"
+                            BackgroundColor="LightGray" Clicked="StopClicked"/>
+                </StackLayout>
+      </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

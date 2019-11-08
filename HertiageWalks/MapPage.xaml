@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mapsui="clr-namespace:Mapsui.UI.Forms;assembly=Mapsui.UI.Forms"
+             xmlns:mapsui2="clr-namespace:Mapsui.UI;assembly=Mapsui"
+             x:Class="HertiageWalks.MapPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <mapsui2:Forms.MapControl x:Name="mapView"
+		    VerticalOptions="FillAndExpand"
+            HorizontalOptions="Fill"
+		    BackgroundColor="Gray" 
+		    Margin="10" />
+
+            <StackLayout VerticalOptions="End"
+                         BackgroundColor="LightGray">
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Map"
+                            BackgroundColor="LightGray"  Clicked="MapClicked"/>
+                    <Button Text="Trail"
+                            BackgroundColor="LightGray" Clicked="TrailClicked"/>
+                    <Button Text="StopsList"
+                            BackgroundColor="LightGray" Clicked="StopClicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
