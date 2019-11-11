@@ -9,23 +9,53 @@ namespace HertiageWalks.Core.ViewModel
 {
     public class StopViewModel :BaseViewModel
     {
-        private List<StopLocation> stops;
-        public HeritageWalkService HeritageWalkService { get; } = new HeritageWalkService();
+        private StopLocation stop;
         public StopViewModel()
         {
-            LoadDataAsync();
+
+        }
+        public StopViewModel(StopLocation stop)
+        {
+            this.stop = stop;
         }
 
-        public List<StopLocation> Stops
+        public StopLocation Stop
         {
-            get { return stops; }
+            get { return stop; }
             set { OnPropertyChanged(); }
         }
 
-        public async void LoadDataAsync()
+        public string StopName
         {
-            stops = await HeritageWalkService.GetAllStops();
-            OnPropertyChanged("Stops");
+            get { return stop.name; }
+            set { OnPropertyChanged(); }
         }
+
+        public string ShortDescription
+        {
+            get { return stop.short_desc; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string CoordinateX
+        {
+            get { return stop.coord_x; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string CoordinateY
+        {
+            get { return stop.coord_y; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string StopImg 
+        {
+            get { return string.Format(HeritageWalkService.ImgPath, "stops", stop.img); }
+            set { OnPropertyChanged(); }
+        }
+
+
+
     }
 }

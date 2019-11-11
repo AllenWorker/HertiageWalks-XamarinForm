@@ -13,10 +13,25 @@ namespace HertiageWalks.Core.ViewModel
     {
 
         private Trail trail;
+        private List<StopLocation> stops;
+        private IList<StopViewModel> stopViews;
+
+        public HeritageWalkService HeritageWalkService { get; } = new HeritageWalkService();
 
         public TrailViewModel()
         {
-            
+
+        }
+
+        public TrailViewModel(Trail trail)
+        {
+            this.trail = trail;
+        }
+
+        public Trail Trail
+        {
+            get { return trail; }
+            set { OnPropertyChanged(); }
         }
         
         public int TrailID
@@ -49,7 +64,23 @@ namespace HertiageWalks.Core.ViewModel
             set { OnPropertyChanged(); }
         }
 
+        public IList<StopViewModel> Stops
+        {
+            get { return stopViews; }
+            set { OnPropertyChanged(); }
+        }
 
+
+        public async void LoadTrailStopAsync()
+        {
+            stopViews = new ObservableRangeCollection<StopViewModel>();
+            stops = await HeritageWalkService.GetTrailStops(trail.id);
+            foreach (StopLocation stop in stops)
+            {
+                stopViews.Add(new StopViewModel(stop));
+            }
+            OnPropertyChanged("Stops");
+        }
 
 
 

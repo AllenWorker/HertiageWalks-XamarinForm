@@ -6,7 +6,7 @@ namespace HertiageWalks.Core.Model
 {
     public class Pivot
     {
-        public int trail_id { get; set; }
-        public int stop_id { get; set; }
+        internal int trail_id { get; set; }
+        internal int stop_id { get; set; }
     }
 }

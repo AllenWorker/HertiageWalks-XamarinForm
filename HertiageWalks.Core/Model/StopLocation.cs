@@ -6,18 +6,18 @@ namespace HertiageWalks.Core.Model
 {
     public class StopLocation
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string short_desc { get; set; }
-        public string full_desc { get; set; }
-        public string coord_x { get; set; }
-        public string coord_y { get; set; }
-        public string created_at { get; set; }
-        public string updated_at { get; set; }
-        public string img { get; set; }
-        public string audio { get; set; }
-        public string street_location { get; set; }
-        public Pivot pivot { get; set; }
+        internal int id { get; set; }
+        internal string name { get; set; }
+        internal string short_desc { get; set; }
+        internal string full_desc { get; set; }
+        internal string coord_x { get; set; }
+        internal string coord_y { get; set; }
+        internal string created_at { get; set; }
+        internal string updated_at { get; set; }
+        internal string img { get; set; }
+        internal string audio { get; set; }
+        internal string street_location { get; set; }
+        internal Pivot pivot { get; set; }
 
     }
 }

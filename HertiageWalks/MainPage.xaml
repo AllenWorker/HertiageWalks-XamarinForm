@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core"
-          
              mc:Ignorable="d"
                 Title ="Heritage Walks"
              x:Class="HertiageWalks.MainPage">
@@ -12,11 +11,11 @@
         <ToolbarItem Name="Help" Order="Primary" Priority="1" Clicked="HelpClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
-        <vm:TrailViewModel>
+        <vm:MasterViewModel>
             <x:Arguments>
                 <x:Int32>1</x:Int32>
             </x:Arguments>
-        </vm:TrailViewModel>
+        </vm:MasterViewModel>
     </ContentPage.BindingContext>
 
     <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}" ItemTapped="HandleItemTapped">
@@ -27,10 +26,10 @@
         </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ImageCell Text="{Binding name}"
-                           Detail="{Binding length}">
+                <ImageCell Text="{Binding TrailName}"
+                           Detail="{Binding TrailLength}">
                     <ImageCell.ImageSource>
-                        <UriImageSource Uri="{Binding img, StringFormat='https://heritage-walks.screencraft.net.au/images/trails/{0}'}"/>
+                        <UriImageSource Uri="{Binding ImgUri}"/>
                     </ImageCell.ImageSource>
                 </ImageCell>
             </DataTemplate>
