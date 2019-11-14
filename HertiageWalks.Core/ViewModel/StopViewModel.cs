@@ -25,6 +25,12 @@ namespace HertiageWalks.Core.ViewModel
             set { OnPropertyChanged(); }
         }
 
+        public int StopID
+        {
+            get { return stop.id; }
+            set { OnPropertyChanged(); }
+        }
+
         public string StopName
         {
             get { return stop.name; }
