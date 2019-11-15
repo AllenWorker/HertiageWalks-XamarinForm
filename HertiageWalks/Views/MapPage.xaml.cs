@@ -38,12 +38,15 @@ namespace HertiageWalks.Views
             mapView.Map = CreateMap();
             mapView.Info += StopInfo;
 
-          //  List<StopLocation> list;
-            //var view = new MapView();
+  
         }
 
 
-       
+       /// <summary>
+       /// press on point to view stop
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         public void StopInfo(object sender, MapInfoEventArgs e)
         {
             if (e.MapInfo.Feature != null)
@@ -59,6 +62,10 @@ namespace HertiageWalks.Views
             await Navigation.PushAsync(new StopPage());
         }
 
+        /// <summary>
+        /// creates the openstreetmap & point layer AKA stop layer
+        /// </summary>
+        /// <returns></returns>
         public Mapsui.Map CreateMap()
         {
             map = new Map();
@@ -69,6 +76,10 @@ namespace HertiageWalks.Views
             return map;
         }
 
+        /// <summary>
+        /// create the point layer
+        /// </summary>
+        /// <returns></returns>
         private  MemoryLayer CreatePointLayer()
         {
             return new MemoryLayer
@@ -79,6 +90,11 @@ namespace HertiageWalks.Views
 
             };
         }
+
+        /// <summary>
+        ///loops through stop to create a point on the layer above 
+        /// </summary>
+        /// <returns></returns>
         private  Features GetStops()
         {
             // Prepare a features variable, and build the data to populate it.
