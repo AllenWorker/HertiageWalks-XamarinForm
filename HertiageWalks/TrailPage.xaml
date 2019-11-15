@@ -35,8 +35,8 @@
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Map"
                             BackgroundColor="LightGray"  Clicked="MapClicked"/>
-                    <Button Text="Trail"
-                            BackgroundColor="LightGray" Clicked="TrailClicked"/>
+                    <Button Text="Home"
+                            BackgroundColor="LightGray" Clicked="HomeClicked"/>
                     <Button Text="StopsList"
                             BackgroundColor="LightGray" Clicked="StopClicked"/>
                 </StackLayout>

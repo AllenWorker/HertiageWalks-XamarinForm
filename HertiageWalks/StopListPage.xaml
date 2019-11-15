@@ -7,7 +7,8 @@
     <ContentPage.BindingContext>
         <vm:StopViewModel/>
     </ContentPage.BindingContext>
-    <ListView  x:Name="TrailView">
+    <StackLayout>
+        <ListView  x:Name="TrailView">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
@@ -24,4 +25,16 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+    <StackLayout VerticalOptions="End"
+                         BackgroundColor="LightGray">
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Trail"
+                            BackgroundColor="LightGray" Clicked="TrailClicked"/>
+            <Button Text="Home"
+                            BackgroundColor="LightGray" Clicked="HomeClicked"/>
+            <Button Text="Map"
+                            BackgroundColor="LightGray" Clicked="MapClicked"/>
+        </StackLayout>
+    </StackLayout>
+    </StackLayout>
 </ContentPage>

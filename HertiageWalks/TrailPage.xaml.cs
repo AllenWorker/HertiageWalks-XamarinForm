@@ -33,9 +33,9 @@ namespace HertiageWalks
             await Navigation.PushAsync(new MapPage());
         }
 
-        async void TrailClicked(object sender, EventArgs e)
+        async void HomeClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TrailPage());
+            await Navigation.PopToRootAsync();
         }
 
         async void StopClicked(object sender, EventArgs e)
