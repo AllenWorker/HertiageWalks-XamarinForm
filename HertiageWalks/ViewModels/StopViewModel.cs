@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HertiageWalks.Core.Model;
-using HertiageWalks.Core.Services;
+using HertiageWalks.Model;
+using HertiageWalks.Services;
 using MvvmHelpers;
 
-namespace HertiageWalks.Core.ViewModel
+namespace HertiageWalks.ViewModel
 {
     public class StopViewModel :BaseViewModel
     {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
-using HertiageWalks.Core.Model;
-using HertiageWalks.Core.Services;
+using HertiageWalks.Model;
+using HertiageWalks.Services;
 using MvvmHelpers;
 
-namespace HertiageWalks.Core.ViewModel
+namespace HertiageWalks.ViewModel
 {
     public class TrailViewModel : BaseViewModel
     {
@@ -28,7 +28,13 @@ namespace HertiageWalks.Core.ViewModel
             this.trail = trail;
         }
 
-        public Trail Trail
+        public TrailViewModel Trail
+        {
+            get { return this; }
+            set { OnPropertyChanged(); }
+        }
+
+        public Trail TrailModel
         {
             get { return trail; }
             set { OnPropertyChanged(); }
@@ -43,6 +49,12 @@ namespace HertiageWalks.Core.ViewModel
         public string TrailName
         {
             get { return trail.name; }
+            set { OnPropertyChanged(); }
+        }
+
+        public string TrailDescription
+        {
+            get { return trail.description; }
             set { OnPropertyChanged(); }
         }
 

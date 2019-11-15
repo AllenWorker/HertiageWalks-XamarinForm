@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using HertiageWalks.ViewModel;
 
-namespace HertiageWalks
+namespace HertiageWalks.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TrailPage : ContentPage
 	{
-		public TrailPage ()
+		public TrailPage (TrailViewModel trailViewModel)
 		{
 			InitializeComponent ();
-		}
+            BindingContext = trailViewModel;
+
+        }
 
 
         /// <summary>

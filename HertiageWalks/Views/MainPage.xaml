@@ -3,13 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core"
+             xmlns:vm="clr-namespace:HertiageWalks.ViewModel"
+             xmlns:Controls="clr-namespace:HertiageWalks.Controls"
              mc:Ignorable="d"
                 Title ="Heritage Walks"
-             x:Class="HertiageWalks.MainPage">
+             x:Class="HertiageWalks.Views.MainPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Help" Order="Primary" Priority="1" Clicked="HelpClicked" />
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:MasterViewModel 
+                x:Name="masterViewModel" 
+                x:Key="masterViewModel">
+                <x:Arguments>
+                    <x:Int32>1</x:Int32>
+                </x:Arguments>
+            </vm:MasterViewModel>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <vm:MasterViewModel>
             <x:Arguments>
@@ -18,7 +30,7 @@
         </vm:MasterViewModel>
     </ContentPage.BindingContext>
 
-    <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}" ItemTapped="HandleItemTapped">
+    <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}" >
         <ListView.Header>
             <StackLayout Orientation="Horizontal">
                 <Label Text="List of Trails"/>
@@ -26,12 +38,11 @@
         </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ImageCell Text="{Binding TrailName}"
-                           Detail="{Binding TrailLength}">
-                    <ImageCell.ImageSource>
-                        <UriImageSource Uri="{Binding ImgUri}"/>
-                    </ImageCell.ImageSource>
-                </ImageCell>
+                <Controls:TrailViewCell Trail="{Binding Trail}"
+					ItemTappedCommand="{
+						Binding Source={StaticResource masterViewModel}, 
+						Path=ItemTappedCommand
+					}"/>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

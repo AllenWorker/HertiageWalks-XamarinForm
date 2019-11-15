@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using HertiageWalks.Core.Model;
+using HertiageWalks.Model;
 using Newtonsoft.Json;
 
-namespace HertiageWalks.Core.Services
+namespace HertiageWalks.Services
 {
     public class HeritageWalkService
     {
@@ -64,7 +64,7 @@ namespace HertiageWalks.Core.Services
 
                 if (string.IsNullOrWhiteSpace(json))
                     return null;
-
+                List<Trail> testTrail = JsonConvert.DeserializeObject<List<Trail>>(json);
                 return JsonConvert.DeserializeObject<List<Trail>>(json);
             }
         }

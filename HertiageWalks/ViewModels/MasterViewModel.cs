@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HertiageWalks.Core.Model;
-using HertiageWalks.Core.Services;
+using System.Windows.Input;
+using HertiageWalks.Model;
+using HertiageWalks.Services;
 using MvvmHelpers;
+using HertiageWalks;
+using Xamarin.Forms;
+using System.Linq;
 
-namespace HertiageWalks.Core.ViewModel
+namespace HertiageWalks.ViewModel
 {
     public class MasterViewModel : BaseViewModel
     {
@@ -19,11 +23,24 @@ namespace HertiageWalks.Core.ViewModel
 
         public MasterViewModel()
         {
-            
+            //NavigationPage page = HertiageWalks.Views.MainPage;
         }
         public MasterViewModel(int selection)
         {
             LoadDataAsync(selection);
+
+            ItemTappedCommand = new Command((obj) =>
+            {
+                TrailViewModel trail = obj as TrailViewModel;
+
+                var trailViews = Trails
+                                .Where(d => d.TrailID == trail.TrailID)
+                                .Select(d => d)
+                                .Single();
+                var mainPage = App.Current.MainPage;
+                var navgation = mainPage.Navigation;
+                navgation.PushAsync(new Views.TrailPage(trailViews));
+            });
         }
 
         public IList<TrailViewModel> Trails
@@ -37,6 +54,8 @@ namespace HertiageWalks.Core.ViewModel
             get { return stopViews; }
             set { OnPropertyChanged(); }
         }
+
+        public ICommand ItemTappedCommand { get; private set; }
 
         public async void LoadDataAsync(int selection)
         {
