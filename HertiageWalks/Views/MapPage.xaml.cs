@@ -92,12 +92,15 @@ namespace HertiageWalks.Views
             {
                 // Get the coordinates for each stop.
                 var coordinates = SphericalMercator.FromLonLat(Convert.ToDouble(stop.coord_x), Convert.ToDouble(stop.coord_y));
+                List<Mapsui.Styles.Style> styles = new List<Mapsui.Styles.Style>();
+                styles.Add(new LabelStyle { Text = stop.name });
 
 
                 // Add the new Feature to Features.
                 features.Add(new Feature
                 {
                     Geometry = coordinates,
+                    Styles = styles.ToArray(),
                     ["Label"] = stop.id,
                     ["Name"] = stop.name,
                 });
