@@ -12,7 +12,7 @@ namespace HertiageWalks.Services
     {
         const string HeritageWalkUri = "https://heritage-walks.screencraft.net.au/api/{0}/{1}";
         public const string ImgPath = "https://heritage-walks.screencraft.net.au/images/{0}/{1}";
-
+        public const string AudioPath = "https://heritage-walks.screencraft.net.au/audio/{0}";
         public async Task<StopLocation> GetStop(int stopId)
         {
             using (var client = new HttpClient())
@@ -45,7 +45,7 @@ namespace HertiageWalks.Services
         {
             using (var client = new HttpClient())
             {
-                var url = string.Format(HeritageWalkUri, "trails", trailId);
+                var url = string.Format(HeritageWalkUri, "trailstops", trailId);
                 var json = await client.GetStringAsync(url);
 
                 if (string.IsNullOrWhiteSpace(json))

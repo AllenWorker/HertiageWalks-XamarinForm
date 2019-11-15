@@ -18,15 +18,15 @@ namespace HertiageWalks.Views
 	{
 
         public ISimpleAudioPlayer player = CrossSimpleAudioPlayer.Current;
-
+        TrailViewModel trailViewModel;
         public TrailPage(TrailViewModel trailViewModel)
         {
             InitializeComponent();
+            this.trailViewModel = trailViewModel;
             BindingContext = trailViewModel;
             ISimpleAudioPlayer player = CrossSimpleAudioPlayer.Current;
-            string url = "https://heritage-walks.screencraft.net.au/audio/default.mp3";
             WebClient wc = new WebClient();
-            Stream fileStream = wc.OpenRead(url);
+            Stream fileStream = wc.OpenRead(trailViewModel.AudioUri);
             player.Load(fileStream);
 
         }
@@ -67,7 +67,7 @@ namespace HertiageWalks.Views
 
         async void MapClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MapPage());
+            await Navigation.PushAsync(new MapPage(trailViewModel));
         }
 
 

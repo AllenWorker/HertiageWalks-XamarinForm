@@ -5,7 +5,7 @@
                xmlns:vm="clr-namespace:HertiageWalks.ViewModel">
     
     <ContentPage.BindingContext>
-        <vm:StopViewModel/>
+        <vm:TrailViewModel/>
     </ContentPage.BindingContext>
     <StackLayout>
         <ListView  x:Name="TrailView">
@@ -13,13 +13,13 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="{Binding StopImage}" />
+                            <Image Source="{Binding StopImg}" />
                         <Label Text="{Binding StopName}"
                                 TextColor="#f35e20" />
-                        <Label Text="{Binding StopStreetlocation}"
+                            <Label Text="{Binding StreetLocation}"
                                 HorizontalOptions="EndAndExpand"
                                 TextColor="#503026" />
-                        <Button Text="View" CommandParameter="{Binding StopId}" Clicked="StopClicked"></Button>
+                        <Button Text="View" CommandParameter="{Binding StopID}" Clicked="StopClicked"></Button>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

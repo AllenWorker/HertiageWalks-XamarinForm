@@ -55,6 +55,12 @@ namespace HertiageWalks.ViewModel
             set { OnPropertyChanged(); }
         }
 
+        public string StreetLocation
+        {
+            get { return stop.street_location; }
+            set { OnPropertyChanged(); }
+        }
+
         public string StopImg 
         {
             get { return string.Format(HeritageWalkService.ImgPath, "stops", stop.img); }

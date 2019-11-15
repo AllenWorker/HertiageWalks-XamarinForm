@@ -1,6 +1,5 @@
 ﻿using BruTile.Predefined;
 using BruTile.Wms;
-
 using HertiageWalks.Model;
 using HertiageWalks.ViewModel;
 using Mapsui;
@@ -28,17 +27,20 @@ namespace HertiageWalks.Views
 	{
         private Map map;
 
+
         public List<StopLocation> list = new List<StopLocation>();
 
-        public MapPage()
+        private TrailViewModel trail;
+
+        public MapPage(TrailViewModel trailViewModel)
         {
            
             InitializeComponent();
-           
+            trail = trailViewModel;
             mapView.Map = CreateMap();
             mapView.Info += StopInfo;
 
-  
+
         }
 
 
@@ -71,7 +73,7 @@ namespace HertiageWalks.Views
             map = new Map();
             map.Layers.Add(OpenStreetMap.CreateTileLayer());
             map.Layers.Add(CreatePointLayer());
-     
+
 
             return map;
         }
@@ -103,21 +105,28 @@ namespace HertiageWalks.Views
          
 
             // Add each stop as a feature to features.
-            foreach (var stop in list)
+            foreach (StopViewModel stop in trail.Stops)
             {
                 // Get the coordinates for each stop.
-                var coordinates = SphericalMercator.FromLonLat(Convert.ToDouble(stop.coord_x), Convert.ToDouble(stop.coord_y));
+
                 List<Mapsui.Styles.Style> styles = new List<Mapsui.Styles.Style>();
-                styles.Add(new LabelStyle { Text = stop.name });
+                styles.Add(new LabelStyle { Text = stop.StopName });
+
+                var coordinates = SphericalMercator.FromLonLat(Convert.ToDouble(decimal.Parse(stop.CoordinateX, System.Globalization.CultureInfo.InvariantCulture)), Convert.ToDouble(decimal.Parse(stop.CoordinateY, System.Globalization.CultureInfo.InvariantCulture)));
+
 
 
                 // Add the new Feature to Features.
                 features.Add(new Feature
                 {
                     Geometry = coordinates,
+
                     Styles = styles.ToArray(),
-                    ["ID"] = stop.id,
-                    ["Name"] = stop.name,
+                  
+
+
+                    ["Label"] = stop.StopID,
+                    ["Name"] = stop.StopName,
 
                 });
             }

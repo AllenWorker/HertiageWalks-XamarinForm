@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using HertiageWalks.ViewModel;
-using HertiageWalks.Model;
 using System.Windows.Input;
 
 namespace HertiageWalks.Controls

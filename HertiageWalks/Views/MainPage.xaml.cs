@@ -10,10 +10,6 @@ using Xamarin.Forms;
 
 
 
-
-
-
-
 namespace HertiageWalks.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
