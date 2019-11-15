@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace HertiageWalks
+namespace HertiageWalks.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MapPage : ContentPage
