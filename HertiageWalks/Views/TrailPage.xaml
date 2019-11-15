@@ -10,21 +10,20 @@
         <StackLayout>
             <StackLayout>
             <Label Text="Trail!"/>
-            <Label Text="{Binding TrailName}"
+                <Label Text="{Binding TrailName}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Image Source="{Binding TrailImage}" />
-           
-                <StackLayout Orientation="Horizontal">
-                <Label Text="Distance KM"
+                <Image Source="{Binding ImgUri}" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Distance KM"
                                 HorizontalOptions="EndAndExpand"/>
                 <Label Text="Time H"
                                 HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding TrailDistance}"
+                <Label Text="{Binding TrailLength}"
                                 HorizontalOptions="EndAndExpand"/>
-                <Label Text="{Binding TrailTime}"
+                <Label Text="{Binding Time}"
                                 HorizontalOptions="EndAndExpand"/>
             </StackLayout>
                 <StackLayout BackgroundColor="LightGray">
