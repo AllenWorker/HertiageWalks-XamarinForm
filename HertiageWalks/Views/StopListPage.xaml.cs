@@ -24,19 +24,7 @@ namespace HertiageWalks.Views
             // Do your Stuff.....
         }
 
-        async void TrailClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TrailPage());
-        }
-
-        async void MapClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new StopList());
-        }
-        async void HomeClicked(object sender, EventArgs e)
-        {
-            await Navigation.PopToRootAsync();
-        }
+      
 
     }
 }

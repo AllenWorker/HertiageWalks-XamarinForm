@@ -1,6 +1,8 @@
 ﻿using BruTile.Predefined;
 using BruTile.Wms;
 using HertiageWalks.Core.Model;
+using HertiageWalks.Model;
+using HertiageWalks.ViewModel;
 using Mapsui;
 using Mapsui.Layers;
 using Mapsui.Projection;
@@ -25,36 +27,23 @@ namespace HertiageWalks.Views
 	public partial class MapPage : ContentPage
 	{
         private Map map;
-        public Core.ViewModel.StopViewModel stopModel = new Core.ViewModel.StopViewModel();
+     
         public List<StopLocation> list = new List<StopLocation>();
 
         public MapPage()
         {
            
             InitializeComponent();
-            stopModel.LoadDataAsync();
+           
             mapView.Map = CreateMap();
             mapView.Info += StopInfo;
-         
-            List<StopLocation> list = stopModel.Stops;
+
+            List<StopLocation> list;
             //var view = new MapView();
         }
 
 
-        async void TrailClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TrailPage());
-        }
-
-        async void StopClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new StopList());
-        }
-        async void HomeClicked(object sender, EventArgs e)
-        {
-            await Navigation.PopToRootAsync();
-        }
-
+       
         public void StopInfo(object sender, MapInfoEventArgs e)
         {
             if (e.MapInfo.Feature != null)

@@ -10,17 +10,7 @@
             HorizontalOptions="Fill"
 		    BackgroundColor="Gray" 
 		    Margin="10" />
-            <StackLayout VerticalOptions="End"
-                         BackgroundColor="LightGray">
-                <StackLayout Orientation="Horizontal">
-                    <Button Text="Trail"
-                            BackgroundColor="LightGray" Clicked="TrailClicked"/>
-                    <Button Text="Home"
-                            BackgroundColor="LightGray" Clicked="HomeClicked"/>
-                    <Button Text="StopsList"
-                            BackgroundColor="LightGray" Clicked="StopClicked"/>
-                </StackLayout>
-            </StackLayout>
+           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
