@@ -65,6 +65,15 @@ namespace HertiageWalks.Views
             await Navigation.PushAsync(new InfoPage());
         }
 
-     
+        async void MapClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MapPage());
+        }
+
+
+        async void StopClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new StopList());
+        }
     }
 }

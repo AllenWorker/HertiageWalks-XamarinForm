@@ -30,7 +30,16 @@
                             BackgroundColor="LightGray"  Clicked="PlayClicked" />
                 </StackLayout>
             </StackLayout>
-          
+          <StackLayout VerticalOptions="End"
+                         BackgroundColor="LightGray">
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Map"
+                            BackgroundColor="LightGray"  Clicked="MapClicked"/>
+                
+                    <Button Text="StopsList"
+                            BackgroundColor="LightGray" Clicked="StopClicked"/>
+                </StackLayout>
+      </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
