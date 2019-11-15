@@ -17,7 +17,8 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Image Source="{Binding TrailImage}" />
-            <StackLayout Orientation="Horizontal">
+           
+                <StackLayout Orientation="Horizontal">
                 <Label Text="Distance KM"
                                 HorizontalOptions="EndAndExpand"/>
                 <Label Text="Time H"
@@ -29,7 +30,11 @@
                 <Label Text="{Binding TrailTime}"
                                 HorizontalOptions="EndAndExpand"/>
             </StackLayout>
-        </StackLayout>
+                <StackLayout BackgroundColor="LightGray">
+                    <Button x:Name="AudioButton" Text="play"
+                            BackgroundColor="LightGray"  Clicked="PlayClicked"/>
+                </StackLayout>
+            </StackLayout>
           <StackLayout VerticalOptions="End"
                          BackgroundColor="LightGray">
                 <StackLayout Orientation="Horizontal">
