@@ -30,7 +30,7 @@
         </vm:MasterViewModel>
     </ContentPage.BindingContext>
 
-    <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}" >
+    <ListView  x:Name="TrailView" ItemsSource="{Binding Trails}" HasUnevenRows="True" >
         <ListView.Header>
             <StackLayout Orientation="Horizontal">
                 <Label Text="List of Trails"/>

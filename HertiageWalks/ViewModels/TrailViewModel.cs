@@ -76,6 +76,8 @@ namespace HertiageWalks.ViewModel
             set { OnPropertyChanged(); }
         }
 
+        
+
         public IList<StopViewModel> Stops
         {
             get { return stopViews; }
