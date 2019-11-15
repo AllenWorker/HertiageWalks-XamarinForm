@@ -1,6 +1,6 @@
 ﻿using BruTile.Predefined;
 using BruTile.Wms;
-using HertiageWalks.Core.Model;
+
 using HertiageWalks.Model;
 using HertiageWalks.ViewModel;
 using Mapsui;
@@ -27,7 +27,7 @@ namespace HertiageWalks.Views
 	public partial class MapPage : ContentPage
 	{
         private Map map;
-     
+
         public List<StopLocation> list = new List<StopLocation>();
 
         public MapPage()
@@ -38,7 +38,7 @@ namespace HertiageWalks.Views
             mapView.Map = CreateMap();
             mapView.Info += StopInfo;
 
-            List<StopLocation> list;
+          //  List<StopLocation> list;
             //var view = new MapView();
         }
 
@@ -64,7 +64,7 @@ namespace HertiageWalks.Views
             map = new Map();
             map.Layers.Add(OpenStreetMap.CreateTileLayer());
             map.Layers.Add(CreatePointLayer());
-            //   LoadPoints();
+     
 
             return map;
         }
@@ -83,9 +83,8 @@ namespace HertiageWalks.Views
         {
             // Prepare a features variable, and build the data to populate it.
             var features = new Features();
-           
-        
 
+         
 
             // Add each stop as a feature to features.
             foreach (var stop in list)
@@ -101,8 +100,9 @@ namespace HertiageWalks.Views
                 {
                     Geometry = coordinates,
                     Styles = styles.ToArray(),
-                    ["Label"] = stop.id,
+                    ["ID"] = stop.id,
                     ["Name"] = stop.name,
+
                 });
             }
             // Return the features.
