@@ -26,6 +26,7 @@ namespace HertiageWalks.ViewModel
         public TrailViewModel(Trail trail)
         {
             this.trail = trail;
+            LoadTrailStopAsync();
         }
 
         public TrailViewModel Trail
@@ -76,7 +77,11 @@ namespace HertiageWalks.ViewModel
             set { OnPropertyChanged(); }
         }
 
-        
+        public string AudioUri
+        {
+            get { return string.Format(HeritageWalkService.AudioPath, trail.audio); }
+            set { OnPropertyChanged(); }
+        }
 
         public IList<StopViewModel> Stops
         {

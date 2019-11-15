@@ -1,6 +1,5 @@
 ﻿using BruTile.Predefined;
 using BruTile.Wms;
-using HertiageWalks.Core.Model;
 using HertiageWalks.Model;
 using HertiageWalks.ViewModel;
 using Mapsui;
@@ -27,18 +26,19 @@ namespace HertiageWalks.Views
 	public partial class MapPage : ContentPage
 	{
         private Map map;
-     
-        public List<StopLocation> list = new List<StopLocation>();
 
-        public MapPage()
+        public List<StopViewModel> stopList;
+
+        private TrailViewModel trail;
+
+        public MapPage(TrailViewModel trailViewModel)
         {
            
             InitializeComponent();
-           
+            trail = trailViewModel;
             mapView.Map = CreateMap();
             mapView.Info += StopInfo;
 
-            List<StopLocation> list;
             //var view = new MapView();
         }
 
@@ -64,7 +64,6 @@ namespace HertiageWalks.Views
             map = new Map();
             map.Layers.Add(OpenStreetMap.CreateTileLayer());
             map.Layers.Add(CreatePointLayer());
-            //   LoadPoints();
 
             return map;
         }
@@ -88,18 +87,18 @@ namespace HertiageWalks.Views
 
 
             // Add each stop as a feature to features.
-            foreach (var stop in list)
+            foreach (StopViewModel stop in trail.Stops)
             {
                 // Get the coordinates for each stop.
-                var coordinates = SphericalMercator.FromLonLat(Convert.ToDouble(stop.coord_x), Convert.ToDouble(stop.coord_y));
+                var coordinates = SphericalMercator.FromLonLat(Convert.ToDouble(decimal.Parse(stop.CoordinateX, System.Globalization.CultureInfo.InvariantCulture)), Convert.ToDouble(decimal.Parse(stop.CoordinateY, System.Globalization.CultureInfo.InvariantCulture)));
 
 
                 // Add the new Feature to Features.
                 features.Add(new Feature
                 {
                     Geometry = coordinates,
-                    ["Label"] = stop.id,
-                    ["Name"] = stop.name,
+                    ["Label"] = stop.StopID,
+                    ["Name"] = stop.StopName,
                 });
             }
             // Return the features.

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 
-using HertiageWalks.Core.Model;
 
 
 
