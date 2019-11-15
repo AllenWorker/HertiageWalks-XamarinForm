@@ -1,5 +1,6 @@
 ﻿using BruTile.Predefined;
 using BruTile.Wms;
+using HertiageWalks.Core.Model;
 using Mapsui;
 using Mapsui.Layers;
 using Mapsui.Projection;
@@ -24,12 +25,18 @@ namespace HertiageWalks
 	public partial class MapPage : ContentPage
 	{
         private Map map;
+        public Core.ViewModel.StopViewModel stopModel = new Core.ViewModel.StopViewModel();
+        public List<StopLocation> list = new List<StopLocation>();
 
         public MapPage()
         {
+           
             InitializeComponent();
+            stopModel.LoadDataAsync();
             mapView.Map = CreateMap();
             mapView.Info += StopInfo;
+         
+            List<StopLocation> list = stopModel.Stops;
             //var view = new MapView();
         }
 
@@ -73,7 +80,7 @@ namespace HertiageWalks
             return map;
         }
 
-        private static MemoryLayer CreatePointLayer()
+        private  MemoryLayer CreatePointLayer()
         {
             return new MemoryLayer
             {
@@ -83,26 +90,27 @@ namespace HertiageWalks
 
             };
         }
-        private static Features GetStops()
+        private  Features GetStops()
         {
             // Prepare a features variable, and build the data to populate it.
             var features = new Features();
-            List<string> list = new List<string>();
-            list.Add("someday");
+           
+        
 
 
             // Add each stop as a feature to features.
             foreach (var stop in list)
             {
                 // Get the coordinates for each stop.
-                var coordinates = SphericalMercator.FromLonLat(115.85713, -31.95496);
+                var coordinates = SphericalMercator.FromLonLat(Convert.ToDouble(stop.coord_x), Convert.ToDouble(stop.coord_y));
 
 
                 // Add the new Feature to Features.
                 features.Add(new Feature
                 {
                     Geometry = coordinates,
-                    ["Label"] = stop,
+                    ["Label"] = stop.id,
+                    ["Name"] = stop.name,
                 });
             }
             // Return the features.
