@@ -6,28 +6,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+
     <PackageReference Include="Mapsui" Version="2.0.0-beta.28" />
     <PackageReference Include="Mapsui.Forms" Version="2.0.0-beta.28" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta2" />
     <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.1-beta" />
+
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991210-pre2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HertiageWalks.Core\HertiageWalks.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="StopListPage.xaml.cs">
+    <Compile Update="Views\StopListPage.xaml.cs">
       <DependentUpon>StopListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="TrailPage.xaml.cs">
+    <Compile Update="Views\TrailPage.xaml.cs">
       <DependentUpon>TrailPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Controls\TrailViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="InfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -37,10 +40,15 @@
     <EmbeddedResource Update="StopListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="StopPage.xaml">
+
+    <EmbeddedResource Update="Views\StopListPage.xaml">
+
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="TrailPage.xaml">
+    <EmbeddedResource Update="Views\StopPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TrailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

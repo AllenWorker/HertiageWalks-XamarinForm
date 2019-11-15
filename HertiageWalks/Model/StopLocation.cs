@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HertiageWalks.Core.Model
+namespace HertiageWalks.Model
 {
     public class StopLocation
     {

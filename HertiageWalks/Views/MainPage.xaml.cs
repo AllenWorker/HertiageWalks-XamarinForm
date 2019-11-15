@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using HertiageWalks.Core.ViewModel;
 
 
 using HertiageWalks.Core.Model;
@@ -15,7 +14,7 @@ using HertiageWalks.Core.Model;
 
 
 
-namespace HertiageWalks
+namespace HertiageWalks.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
@@ -33,12 +32,13 @@ namespace HertiageWalks
         /// </summary>
         /// <param name="Sender"></param>
         /// <param name="args"></param>
-        async void TrailClicked(object s, SelectedItemChangedEventArgs e)
+        /*
+        async void HandleItemTapped(object s, SelectedItemChangedEventArgs e)
         {
             await Navigation.PushAsync(new TrailPage());
 
         }
-
+        */
         /// <summary>
         /// opens the help page
         /// </summary>

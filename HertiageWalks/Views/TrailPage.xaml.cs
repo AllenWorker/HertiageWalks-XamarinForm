@@ -9,22 +9,26 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using HertiageWalks.ViewModel;
 
-namespace HertiageWalks
+namespace HertiageWalks.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TrailPage : ContentPage
 	{
+
         public ISimpleAudioPlayer player = CrossSimpleAudioPlayer.Current;
 
-        public TrailPage ()
-		{
-			InitializeComponent ();
+        public TrailPage(TrailViewModel trailViewModel)
+        {
+            InitializeComponent();
+            BindingContext = trailViewModel;
             ISimpleAudioPlayer player = CrossSimpleAudioPlayer.Current;
             string url = "https://heritage-walks.screencraft.net.au/audio/default.mp3";
             WebClient wc = new WebClient();
             Stream fileStream = wc.OpenRead(url);
             player.Load(fileStream);
+
         }
 
         /// <summary>

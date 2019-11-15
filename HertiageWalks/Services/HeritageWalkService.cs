@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using HertiageWalks.Core.Model;
+using HertiageWalks.Model;
 using Newtonsoft.Json;
 
-namespace HertiageWalks.Core.Services
+namespace HertiageWalks.Services
 {
     public class HeritageWalkService
     {
         const string HeritageWalkUri = "https://heritage-walks.screencraft.net.au/api/{0}/{1}";
-        public const string TrailImgPath = "https://heritage-walks.screencraft.net.au/images/trails/";
+        public const string ImgPath = "https://heritage-walks.screencraft.net.au/images/{0}/{1}";
 
         public async Task<StopLocation> GetStop(int stopId)
         {
@@ -64,7 +64,7 @@ namespace HertiageWalks.Core.Services
 
                 if (string.IsNullOrWhiteSpace(json))
                     return null;
-
+                List<Trail> testTrail = JsonConvert.DeserializeObject<List<Trail>>(json);
                 return JsonConvert.DeserializeObject<List<Trail>>(json);
             }
         }

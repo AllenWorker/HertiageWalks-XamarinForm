@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HertiageWalks.StopList"
-               xmlns:vm="clr-namespace:HertiageWalks.Core.ViewModel;assembly=HertiageWalks.Core">
+             x:Class="HertiageWalks.Views.StopList"
+               xmlns:vm="clr-namespace:HertiageWalks.ViewModel">
     
     <ContentPage.BindingContext>
         <vm:StopViewModel/>
