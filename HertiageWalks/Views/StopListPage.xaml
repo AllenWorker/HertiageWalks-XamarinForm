@@ -35,7 +35,7 @@
         </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <Controls:StopViewCell StopLocation="{Binding Stop}"
+                <Controls:StopViewCell StopLocation="{Binding StopLocation}"
 					ItemTappedCommand="{
 						Binding Source={StaticResource masterViewModel}, 
 						Path=ItemTappedCommand
