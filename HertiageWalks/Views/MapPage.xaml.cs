@@ -12,6 +12,7 @@ using Mapsui.UI.Forms;
 using Mapsui.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -99,8 +100,8 @@ namespace HertiageWalks.Views
             // Prepare a features variable, and build the data to populate it.
             var features = new Features();
 
-         
-
+            
+            
             // Add each stop as a feature to features.
             foreach (StopViewModel stop in trail.Stops)
             {
@@ -108,8 +109,11 @@ namespace HertiageWalks.Views
 
                 List<Mapsui.Styles.Style> styles = new List<Mapsui.Styles.Style>();
                 styles.Add(new LabelStyle { Text = stop.StopName });
+                double x = double.Parse(stop.CoordinateX, CultureInfo.InvariantCulture);
+                double y = double.Parse(stop.CoordinateY, CultureInfo.InvariantCulture);
 
-               var coordinates = SphericalMercator.FromLonLat(Convert.ToDouble(stop.CoordinateX), Convert.ToDouble(stop.CoordinateY));
+
+               var coordinates = SphericalMercator.FromLonLat(y, x);
 
 
 
