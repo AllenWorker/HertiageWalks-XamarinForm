@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace HertiageWalks.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class StopList : ContentPage
+    [DesignTimeVisible(false)]
+    public partial class StopList : ContentPage
 	{
 		public StopList ()
 		{
