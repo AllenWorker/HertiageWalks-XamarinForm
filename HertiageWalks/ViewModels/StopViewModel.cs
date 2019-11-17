@@ -67,7 +67,11 @@ namespace HertiageWalks.ViewModel
             set { OnPropertyChanged(); }
         }
 
-
+        public string AudioUri
+        {
+            get { return string.Format(HeritageWalkService.AudioPath, stop.audio); }
+            set { OnPropertyChanged(); }
+        }
 
     }
 }

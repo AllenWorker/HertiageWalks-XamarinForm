@@ -1,4 +1,5 @@
-﻿using Plugin.SimpleAudioPlayer;
+﻿using HertiageWalks.ViewModel;
+using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,13 +18,15 @@ namespace HertiageWalks.Views
     {
         public ISimpleAudioPlayer player = CrossSimpleAudioPlayer.Current;
 
-        public StopPage()
+        StopViewModel StopViewModel;
+        public StopPage(StopViewModel StopViewModel)
         {
             InitializeComponent();
+            this.StopViewModel = StopViewModel;
+            BindingContext = StopViewModel;
             ISimpleAudioPlayer player = CrossSimpleAudioPlayer.Current;
-            string url = "https://heritage-walks.screencraft.net.au/audio/default.mp3";
             WebClient wc = new WebClient();
-            Stream fileStream = wc.OpenRead(url);
+            Stream fileStream = wc.OpenRead(StopViewModel.AudioUri);
             player.Load(fileStream);
         }
 

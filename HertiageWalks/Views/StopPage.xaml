@@ -3,22 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HertiageWalks.Views.StopPage"
             xmlns:vm="clr-namespace:HertiageWalks.ViewModel">
-    <ContentPage.BindingContext>
-        <vm:StopViewModel/>
-    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Help" Order="Primary" Priority="1" Clicked="HelpClicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding StopName}"
+            <StackLayout>
+                <Label Text="{Binding StopName}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Image Source="{Binding StopImage}" />
-            <Label Text="{Binding StopStreetlocation}"/>
-            <Label Text="{Binding StopShortDesc}"/>
-        
-        <StackLayout BackgroundColor="LightGray">
-            <Button x:Name="AudioButton" Text="play"
-                            BackgroundColor="LightGray"  Clicked="PlayClicked"/>
-        </StackLayout>
+                <Image Source="{Binding StopImg}" />
+                <Label Text="{Binding StreetLocation}"  VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"/>
+                <Label Text="{Binding ShortDescription}"  VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"/>
+                <StackLayout BackgroundColor="LightGray">
+                    <Button x:Name="AudioButton" Text="play"
+                            BackgroundColor="LightGray"  Clicked="PlayClicked" />
+                </StackLayout>
+            </StackLayout>
             
         </StackLayout>
     </ContentPage.Content>
