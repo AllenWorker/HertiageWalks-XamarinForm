@@ -44,25 +44,22 @@ namespace HertiageWalks.Views
         }
 
 
-       /// <summary>
-       /// press on point to view stop
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
-        public void StopInfo(object sender, MapInfoEventArgs e)
+        /// <summary>
+        /// press on point to view stop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void StopInfo(object sender, MapInfoEventArgs e)
         {
             if (e.MapInfo.Feature != null)
             {
-
-                GoToStop();
+                await DisplayAlert(e.MapInfo.Feature?["Name"]?.ToString(), e.MapInfo.Feature?["StreetName"]?.ToString() , "OK");
+               
 
             }
         }
 
-        async void GoToStop()
-        {
-            await Navigation.PushAsync(new StopPage());
-        }
+      
 
         /// <summary>
         /// creates the openstreetmap & point layer AKA stop layer
@@ -127,6 +124,7 @@ namespace HertiageWalks.Views
 
                     ["Label"] = stop.StopID,
                     ["Name"] = stop.StopName,
+                    ["StreetName"] = stop.StreetLocation, 
 
                 });
             }
