@@ -9,8 +9,8 @@ using Xamarin.Forms.Xaml;
 
 namespace HertiageWalks.Views
 {
-    [DesignTimeVisible(false)]
-    public partial class StopList : ContentPage
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class StopList : ContentPage
 	{
 		public StopList ()
 		{
