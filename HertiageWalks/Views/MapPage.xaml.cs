@@ -109,14 +109,14 @@ namespace HertiageWalks.Views
                 List<Mapsui.Styles.Style> styles = new List<Mapsui.Styles.Style>();
                 styles.Add(new LabelStyle { Text = stop.StopName });
 
-              //  var coordinates = SphericalMercator.FromLonLat(stop.CoordinateX, stop.CoordinateY);
+               var coordinates = SphericalMercator.FromLonLat(Convert.ToDouble(stop.CoordinateX), Convert.ToDouble(stop.CoordinateY));
 
 
 
                 // Add the new Feature to Features.
                 features.Add(new Feature
                 {
-                 //   Geometry = coordinates,
+                   Geometry = coordinates,
 
                     Styles = styles.ToArray(),
                   
