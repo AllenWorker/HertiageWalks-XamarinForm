@@ -17,14 +17,18 @@ namespace HertiageWalks.Views
 			InitializeComponent ();
 		}
 
-        public void StopClicked(Object Sender, EventArgs args)
+
+        /// <summary>
+        /// opens the help page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void HelpClicked(object sender, EventArgs e)
         {
-            Button button = (Button)Sender;
-            string ID = button.CommandParameter.ToString();
-            // Do your Stuff.....
+            await Navigation.PushAsync(new InfoPage());
         }
 
-      
+
 
     }
 }

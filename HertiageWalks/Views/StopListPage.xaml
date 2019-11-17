@@ -2,29 +2,45 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HertiageWalks.Views.StopList"
-               xmlns:vm="clr-namespace:HertiageWalks.ViewModel">
-    
+              xmlns:vm="clr-namespace:HertiageWalks.ViewModel"
+             xmlns:Controls="clr-namespace:HertiageWalks.Controls">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Help" Order="Primary" Priority="1" Clicked="HelpClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:MasterViewModel 
+                x:Name="masterViewModel" 
+                x:Key="masterViewModel">
+                <x:Arguments>
+                    <x:Int32>2</x:Int32>
+                </x:Arguments>
+            </vm:MasterViewModel>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
-        <vm:TrailViewModel/>
+        <vm:MasterViewModel>
+            <x:Arguments>
+                <x:Int32>2</x:Int32>
+            </x:Arguments>
+        </vm:MasterViewModel>
     </ContentPage.BindingContext>
-    <StackLayout>
-        <ListView  x:Name="TrailView">
+
+    <ListView  x:Name="StoplocationView" ItemsSource="{Binding Stops}" HasUnevenRows="True" >
+        <ListView.Header>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="List of Stops"/>
+            </StackLayout>
+        </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ViewCell>
-                    <StackLayout Orientation="Horizontal">
-                            <Image Source="{Binding StopImg}" />
-                        <Label Text="{Binding StopName}"
-                                TextColor="#f35e20" />
-                            <Label Text="{Binding StreetLocation}"
-                                HorizontalOptions="EndAndExpand"
-                                TextColor="#503026" />
-                        <Button Text="View" CommandParameter="{Binding StopID}" Clicked="StopClicked"></Button>
-                    </StackLayout>
-                </ViewCell>
+                <Controls:StopViewCell StopLocation="{Binding Stop}"
+					ItemTappedCommand="{
+						Binding Source={StaticResource masterViewModel}, 
+						Path=ItemTappedCommand
+					}"/>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    
-    </StackLayout>
 </ContentPage>
