@@ -8,24 +8,6 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Help" Order="Primary" Priority="1" Clicked="HelpClicked" />
     </ContentPage.ToolbarItems>
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <vm:MasterViewModel 
-                x:Name="masterViewModel" 
-                x:Key="masterViewModel">
-                <x:Arguments>
-                    <x:Int32>2</x:Int32>
-                </x:Arguments>
-            </vm:MasterViewModel>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <ContentPage.BindingContext>
-        <vm:MasterViewModel>
-            <x:Arguments>
-                <x:Int32>2</x:Int32>
-            </x:Arguments>
-        </vm:MasterViewModel>
-    </ContentPage.BindingContext>
 
     <ListView  x:Name="StoplocationView" ItemsSource="{Binding Stops}" HasUnevenRows="True" >
         <ListView.Header>
@@ -35,11 +17,11 @@
         </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <Controls:StopViewCell 
-					ItemTappedCommand="{
-						Binding Source={StaticResource masterViewModel}, 
-						Path=ItemTappedCommand
-					}"/>
+                <Controls:StopViewCell x:Name="stopViewCell"
+                    Stop="{Binding StopView}"
+                    ItemTappedCommand="{Binding BindingContext.ItemTappedCommand, 
+                                Source={RelativeSource FindAncestor, 
+                                    AncestorType={x:Type ContentPage}}}"/>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

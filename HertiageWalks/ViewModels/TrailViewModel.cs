@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using HertiageWalks.Model;
 using HertiageWalks.Services;
 using MvvmHelpers;
+using MvvmHelpers.Commands;
 
 namespace HertiageWalks.ViewModel
 {
@@ -27,6 +30,19 @@ namespace HertiageWalks.ViewModel
         {
             this.trail = trail;
             LoadTrailStopAsync();
+
+            ItemTappedCommand = new Command((obj) =>
+            {
+                StopViewModel stop = obj as StopViewModel;
+
+                var stopViews = Stops
+                                .Where(d => d.StopID == stop.StopID)
+                                .Select(d => d)
+                                .Single();
+                var mainPage = App.Current.MainPage;
+                var navgation = mainPage.Navigation;
+                navgation.PushAsync(new Views.StopPage(stopViews));
+            });
         }
 
         public TrailViewModel Trail
@@ -89,6 +105,7 @@ namespace HertiageWalks.ViewModel
             set { OnPropertyChanged(); }
         }
 
+        public ICommand ItemTappedCommand { get; private set; }
 
         public async void LoadTrailStopAsync()
         {

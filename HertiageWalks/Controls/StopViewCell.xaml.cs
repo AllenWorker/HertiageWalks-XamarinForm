@@ -25,7 +25,7 @@ namespace HertiageWalks.Controls
                 typeof(StopViewModel),
                 typeof(StopViewCell),
                 null);
-        public StopViewModel StopLocation
+        public StopViewModel Stop
         {
             get { return (StopViewModel)GetValue(StopProperty); }
             set { SetValue(StopProperty, value); }
@@ -51,9 +51,9 @@ namespace HertiageWalks.Controls
 
             if (BindingContext != null)
             {
-                imgPhoto.Source = StopLocation.StopImg;
-                lblName.Text = StopLocation.StopName;
-                lblstreet_location.Text = StopLocation.StreetLocation;
+                imgPhoto.Source = Stop.StopImg;
+                lblName.Text = Stop.StopName;
+                lblStreetName.Text = Stop.StreetLocation;
             }
         }
 
@@ -61,7 +61,7 @@ namespace HertiageWalks.Controls
         {
             if (ItemTappedCommand != null)
             {
-                ItemTappedCommand.Execute(StopLocation);
+                ItemTappedCommand.Execute(Stop);
             }
         }
     }

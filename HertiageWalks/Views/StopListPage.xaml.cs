@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using HertiageWalks.ViewModel;
 
 namespace HertiageWalks.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class StopList : ContentPage
 	{
-		public StopList ()
+        TrailViewModel trailViewModel;
+		public StopList (TrailViewModel trailViewModel)
 		{
 			InitializeComponent ();
+            BindingContext = trailViewModel;
 		}
 
 

@@ -59,6 +59,7 @@ namespace HertiageWalks.ViewModel
 
         public async void LoadDataAsync(int selection)
         {
+            //TODO All Stops data is not needed
             switch (selection)
             {
                 case 1:

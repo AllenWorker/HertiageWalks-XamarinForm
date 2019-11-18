@@ -105,16 +105,13 @@ namespace HertiageWalks.Views
             // Add each stop as a feature to features.
             foreach (StopViewModel stop in trail.Stops)
             {
-                // Get the coordinates for each stop.
-                var coordinates = SphericalMercator.FromLonLat(stop.CoordinateX, stop.CoordinateY);
+                
 
                 List<Mapsui.Styles.Style> styles = new List<Mapsui.Styles.Style>();
                 styles.Add(new LabelStyle { Text = stop.StopName });
-                double x = double.Parse(stop.CoordinateX, CultureInfo.InvariantCulture);
-                double y = double.Parse(stop.CoordinateY, CultureInfo.InvariantCulture);
 
 
-               var coordinates = SphericalMercator.FromLonLat(y, x);
+               var coordinates = SphericalMercator.FromLonLat(stop.CoordinateY, stop.CoordinateX);
 
 
 

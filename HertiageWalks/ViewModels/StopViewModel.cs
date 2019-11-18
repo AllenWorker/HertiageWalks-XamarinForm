@@ -19,6 +19,12 @@ namespace HertiageWalks.ViewModel
             this.stop = stop;
         }
 
+        public StopViewModel StopView
+        {
+            get { return this; }
+            set { OnPropertyChanged(); }
+        }
+
         public StopLocation Stop
         {
             get { return stop; }

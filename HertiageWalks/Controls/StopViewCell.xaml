@@ -14,7 +14,7 @@
             <Label x:Name="lblName" Text=" " 
 				FontSize="22"/>
             <StackLayout Orientation="Horizontal" >
-                <Label x:Name="lblstreet_location" Text=" " HorizontalOptions="Start"/>
+                <Label x:Name="lblStreetName" Text=" " HorizontalOptions="Start"/>
             </StackLayout >
         </StackLayout>
         <StackLayout.GestureRecognizers>

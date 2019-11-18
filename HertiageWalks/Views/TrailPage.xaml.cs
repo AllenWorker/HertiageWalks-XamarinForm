@@ -73,7 +73,7 @@ namespace HertiageWalks.Views
 
         async void StopClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new StopList());
+            await Navigation.PushAsync(new StopList(trailViewModel));
         }
     }
 }
