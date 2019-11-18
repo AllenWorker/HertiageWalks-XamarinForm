@@ -17,7 +17,8 @@
                 HorizontalOptions="CenterAndExpand"/>
                 <Label Text="{Binding FullDescription}"  VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"/>
-                <StackLayout BackgroundColor="LightGray">
+                <StackLayout BackgroundColor="LightGray"  VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" >
                     <Button x:Name="AudioButton" Text="play"
                             BackgroundColor="LightGray"  Clicked="PlayClicked" />
                 </StackLayout>
