@@ -29,9 +29,6 @@ namespace HertiageWalks.Views
 	{
         private Map map;
 
-
-        public List<StopLocation> list = new List<StopLocation>();
-
         private TrailViewModel trail;
 
         public MapPage(TrailViewModel trailViewModel)
@@ -57,7 +54,7 @@ namespace HertiageWalks.Views
             {
                 //Console.WriteLine(e.MapInfo.Feature?["Name"]?.ToString() + e.MapInfo.Feature?["StreetName"]?.ToString());
                 Device.BeginInvokeOnMainThread(async () => {
-                    await DisplayAlert(e.MapInfo.Feature?["Name"]?.ToString(), e.MapInfo.Feature?["desc"]?.ToString(), "OK");
+                    await DisplayAlert(e.MapInfo.Feature?["Name"]?.ToString(), e.MapInfo.Feature?["StreetName"]?.ToString() + ". " + e.MapInfo.Feature?["desc"]?.ToString(), "OK");
                 });
             }
         }
