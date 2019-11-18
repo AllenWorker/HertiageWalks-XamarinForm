@@ -15,7 +15,7 @@
                 <Image Source="{Binding StopImg}" />
                 <Label Text="{Binding StreetLocation}"  VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"/>
-                <Label Text="{Binding ShortDescription}"  VerticalOptions="CenterAndExpand" 
+                <Label Text="{Binding FullDescription}"  VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"/>
                 <StackLayout BackgroundColor="LightGray">
                     <Button x:Name="AudioButton" Text="play"

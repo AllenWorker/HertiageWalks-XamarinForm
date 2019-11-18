@@ -1,4 +1,5 @@
-﻿using BruTile.Predefined;
+﻿using Android.Widget;
+using BruTile.Predefined;
 using BruTile.Wms;
 using HertiageWalks.Model;
 using HertiageWalks.ViewModel;
@@ -50,17 +51,19 @@ namespace HertiageWalks.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void StopInfo(object sender, MapInfoEventArgs e)
+        public async void StopInfo(object sender, MapInfoEventArgs e)
         {
             if (e.MapInfo.Feature != null)
             {
-                await DisplayAlert(e.MapInfo.Feature?["Name"]?.ToString(), e.MapInfo.Feature?["StreetName"]?.ToString() , "OK");
-               
-
+                //Console.WriteLine(e.MapInfo.Feature?["Name"]?.ToString() + e.MapInfo.Feature?["StreetName"]?.ToString());
+                Device.BeginInvokeOnMainThread(async () => {
+                    await DisplayAlert(e.MapInfo.Feature?["Name"]?.ToString(), e.MapInfo.Feature?["desc"]?.ToString(), "OK");
+                });
             }
         }
 
       
+
 
         /// <summary>
         /// creates the openstreetmap & point layer AKA stop layer
@@ -129,6 +132,7 @@ namespace HertiageWalks.Views
                     ["Label"] = stop.StopID,
                     ["Name"] = stop.StopName,
                     ["StreetName"] = stop.StreetLocation, 
+                    ["desc"] = stop.ShortDescription,
 
                 });
             }

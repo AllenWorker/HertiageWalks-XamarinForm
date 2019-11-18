@@ -43,6 +43,12 @@ namespace HertiageWalks.ViewModel
             set { OnPropertyChanged(); }
         }
 
+        public string FullDescription
+        {
+            get { return stop.full_desc; }
+            set { OnPropertyChanged(); }
+        }
+
         public string CoordinateX
         {
             get { return stop.coord_x; }
