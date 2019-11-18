@@ -90,7 +90,7 @@ namespace HertiageWalks.Views
             foreach (StopViewModel stop in trail.Stops)
             {
                 // Get the coordinates for each stop.
-                var coordinates = SphericalMercator.FromLonLat(Convert.ToDouble(decimal.Parse(stop.CoordinateX, System.Globalization.CultureInfo.InvariantCulture)), Convert.ToDouble(decimal.Parse(stop.CoordinateY, System.Globalization.CultureInfo.InvariantCulture)));
+                var coordinates = SphericalMercator.FromLonLat(stop.CoordinateX, stop.CoordinateY);
 
 
                 // Add the new Feature to Features.

@@ -43,13 +43,13 @@ namespace HertiageWalks.ViewModel
             set { OnPropertyChanged(); }
         }
 
-        public string CoordinateX
+        public double CoordinateX
         {
             get { return stop.coord_x; }
             set { OnPropertyChanged(); }
         }
 
-        public string CoordinateY
+        public double CoordinateY
         {
             get { return stop.coord_y; }
             set { OnPropertyChanged(); }

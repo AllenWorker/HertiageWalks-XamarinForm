@@ -10,8 +10,8 @@ namespace HertiageWalks.Model
         public string name { get; set; }
         public string short_desc { get; set; }
         public string full_desc { get; set; }
-        public string coord_x { get; set; }
-        public string coord_y { get; set; }
+        public double coord_x { get; set; }
+        public double coord_y { get; set; }
         public string created_at { get; set; }
         public string updated_at { get; set; }
         public string img { get; set; }
