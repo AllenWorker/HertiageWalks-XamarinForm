@@ -43,6 +43,12 @@ namespace HertiageWalks.ViewModel
             set { OnPropertyChanged(); }
         }
 
+        public string FullDescription
+        {
+            get { return stop.full_desc; }
+            set { OnPropertyChanged(); }
+        }
+
         public double CoordinateX
         {
             get { return stop.coord_x; }
@@ -67,7 +73,11 @@ namespace HertiageWalks.ViewModel
             set { OnPropertyChanged(); }
         }
 
-
+        public string AudioUri
+        {
+            get { return string.Format(HeritageWalkService.AudioPath, stop.audio); }
+            set { OnPropertyChanged(); }
+        }
 
     }
 }

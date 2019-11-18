@@ -10,9 +10,6 @@ using Xamarin.Forms;
 
 
 
-
-
-
 namespace HertiageWalks.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -26,18 +23,7 @@ namespace HertiageWalks.Views
 
         }
 
-        /// <summary>
-        /// for the trail page 
-        /// </summary>
-        /// <param name="Sender"></param>
-        /// <param name="args"></param>
-        /*
-        async void HandleItemTapped(object s, SelectedItemChangedEventArgs e)
-        {
-            await Navigation.PushAsync(new TrailPage());
-
-        }
-        */
+   
         /// <summary>
         /// opens the help page
         /// </summary>

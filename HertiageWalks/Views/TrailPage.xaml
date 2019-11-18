@@ -13,13 +13,15 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
                 <Image Source="{Binding ImgUri}" />
-                        <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal"  VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
                             <Label Text="Distance KM"
                                 HorizontalOptions="EndAndExpand"/>
                 <Label Text="Time H"
                                 HorizontalOptions="EndAndExpand"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal"  VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
                 <Label Text="{Binding TrailLength}"
                                 HorizontalOptions="EndAndExpand"/>
                 <Label Text="{Binding Time}"

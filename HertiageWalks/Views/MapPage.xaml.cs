@@ -1,4 +1,5 @@
-﻿using BruTile.Predefined;
+﻿using Android.Widget;
+using BruTile.Predefined;
 using BruTile.Wms;
 using HertiageWalks.Model;
 using HertiageWalks.ViewModel;
@@ -12,6 +13,7 @@ using Mapsui.UI.Forms;
 using Mapsui.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -27,8 +29,6 @@ namespace HertiageWalks.Views
 	{
         private Map map;
 
-        public List<StopViewModel> stopList;
-
         private TrailViewModel trail;
 
         public MapPage(TrailViewModel trailViewModel)
@@ -39,35 +39,47 @@ namespace HertiageWalks.Views
             mapView.Map = CreateMap();
             mapView.Info += StopInfo;
 
-            //var view = new MapView();
+
         }
 
 
-       
-        public void StopInfo(object sender, MapInfoEventArgs e)
+        /// <summary>
+        /// press on point to view stop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void StopInfo(object sender, MapInfoEventArgs e)
         {
             if (e.MapInfo.Feature != null)
             {
-
-                GoToStop();
-
+                //Console.WriteLine(e.MapInfo.Feature?["Name"]?.ToString() + e.MapInfo.Feature?["StreetName"]?.ToString());
+                Device.BeginInvokeOnMainThread(async () => {
+                    await DisplayAlert(e.MapInfo.Feature?["Name"]?.ToString(), e.MapInfo.Feature?["StreetName"]?.ToString() + ". " + e.MapInfo.Feature?["desc"]?.ToString(), "OK");
+                });
             }
         }
 
-        async void GoToStop()
-        {
-            await Navigation.PushAsync(new StopPage());
-        }
+      
 
+
+        /// <summary>
+        /// creates the openstreetmap & point layer AKA stop layer
+        /// </summary>
+        /// <returns></returns>
         public Mapsui.Map CreateMap()
         {
             map = new Map();
             map.Layers.Add(OpenStreetMap.CreateTileLayer());
             map.Layers.Add(CreatePointLayer());
 
+
             return map;
         }
 
+        /// <summary>
+        /// create the point layer
+        /// </summary>
+        /// <returns></returns>
         private  MemoryLayer CreatePointLayer()
         {
             return new MemoryLayer
@@ -78,27 +90,48 @@ namespace HertiageWalks.Views
 
             };
         }
+
+        /// <summary>
+        ///loops through stop to create a point on the layer above 
+        /// </summary>
+        /// <returns></returns>
         private  Features GetStops()
         {
             // Prepare a features variable, and build the data to populate it.
             var features = new Features();
-           
-        
 
-
+            
+            
             // Add each stop as a feature to features.
             foreach (StopViewModel stop in trail.Stops)
             {
                 // Get the coordinates for each stop.
                 var coordinates = SphericalMercator.FromLonLat(stop.CoordinateX, stop.CoordinateY);
 
+                List<Mapsui.Styles.Style> styles = new List<Mapsui.Styles.Style>();
+                styles.Add(new LabelStyle { Text = stop.StopName });
+                double x = double.Parse(stop.CoordinateX, CultureInfo.InvariantCulture);
+                double y = double.Parse(stop.CoordinateY, CultureInfo.InvariantCulture);
+
+
+               var coordinates = SphericalMercator.FromLonLat(y, x);
+
+
 
                 // Add the new Feature to Features.
                 features.Add(new Feature
                 {
-                    Geometry = coordinates,
+                   Geometry = coordinates,
+
+                    Styles = styles.ToArray(),
+                  
+
+
                     ["Label"] = stop.StopID,
                     ["Name"] = stop.StopName,
+                    ["StreetName"] = stop.StreetLocation, 
+                    ["desc"] = stop.ShortDescription,
+
                 });
             }
             // Return the features.
