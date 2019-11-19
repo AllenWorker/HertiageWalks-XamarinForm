@@ -2,17 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HertiageWalks.Views.InfoPage">
-   
+
     <ContentPage.Content>
         <StackLayout>
-       
+
             <Label Text="Information Help Page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Label Text="Info"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-           
+            <Label Text="Trails" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label VerticalOptions="Center"
+                HorizontalOptions="Center" >
+                <Label.Text>
+                    When viewing a trail, there will be three buttons available to be pressed on the screen.
+                    The first button is to Play/Pause the associated audio file. This audio file includes an audio version of the trail description.
+                    The second button opens the Map and displays each of the stops within the trail as markers on the map, to make them easy to locate.
+                    The third button displays a list of all of the stops that are a part of the trail and allow you to view data about the individual stop.
+                </Label.Text>
+            </Label>
+            <Label Text="Stops" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label.Text>
+                    The individual stops each have their own image, description and audio file. This includes a button to play the audio file, as well as a text version of the description.
+                </Label.Text>
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

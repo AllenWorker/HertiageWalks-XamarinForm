@@ -1,5 +1,4 @@
-﻿using Android.Widget;
-using BruTile.Predefined;
+﻿using BruTile.Predefined;
 using BruTile.Wms;
 using HertiageWalks.Model;
 using HertiageWalks.ViewModel;
